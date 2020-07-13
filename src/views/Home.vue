@@ -3,7 +3,7 @@
     <g-button icon="down">
       按钮1
     </g-button>
-    <g-button icon="down">
+    <g-button icon="down" :loading="true">
       按钮2
     </g-button>
     <g-button icon="down" icon-position="right">

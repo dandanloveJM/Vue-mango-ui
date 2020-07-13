@@ -1,6 +1,8 @@
 <template>
 
-	<button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
+	<button class="g-button" :class="{[`icon-${iconPosition}`]: true}"
+					@click="$emit('click', $event)">
+		<Icon class="loading icon" v-if="loading" name="loading"></Icon>
 		<Icon class="icon" :name="icon" v-if="icon"></Icon>
 		<div class="content">
 			<slot></slot>
@@ -20,6 +22,7 @@
   })
   export default class Button extends Vue {
     @Prop(String) icon: string | undefined;
+    @Prop(String) loading: boolean | undefined;
     @Prop({
       default: 'left',
       validator(value: string) {return (value === 'left' || value === 'right');}
@@ -30,6 +33,19 @@
 </script>
 
 <style scoped lang="scss">
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.loading {
+		animation: spin 2s infinite linear ;
+	}
+
 	.g-button {
 		font-size: var(--font-size);
 		height: var(--button-height);
