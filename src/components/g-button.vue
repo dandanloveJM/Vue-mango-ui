@@ -20,7 +20,11 @@
   })
   export default class Button extends Vue {
     @Prop(String) icon: string | undefined;
-    @Prop(String) iconPosition: string | undefined;
+    @Prop({
+      default: 'left',
+      validator(value: string) {return (value === 'left' || value === 'right');}
+    })
+    iconPosition!: string;
 
   }
 </script>
