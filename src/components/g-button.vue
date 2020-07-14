@@ -22,7 +22,7 @@
   })
   export default class Button extends Vue {
     @Prop(String) icon: string | undefined;
-    @Prop(String) loading: boolean | undefined;
+    @Prop(Boolean) loading: boolean | undefined;
     @Prop({
       default: 'left',
       validator(value: string) {return (value === 'left' || value === 'right');}
@@ -43,7 +43,7 @@
 	}
 
 	.loading {
-		animation: spin 2s infinite linear ;
+		animation: spin 1s infinite linear ;
 	}
 
 	.g-button {
