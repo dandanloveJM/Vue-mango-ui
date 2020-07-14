@@ -2,8 +2,9 @@
 
 	<button class="g-button" :class="{[`icon-${iconPosition}`]: true}"
 					@click="$emit('click', $event)">
+
 		<Icon class="loading icon" v-if="loading" name="loading"></Icon>
-		<Icon class="icon" :name="icon" v-if="icon"></Icon>
+		<Icon class="icon" :name="icon" v-if="icon && !loading"></Icon>
 		<div class="content">
 			<slot></slot>
 		</div>
@@ -22,7 +23,7 @@
   })
   export default class Button extends Vue {
     @Prop(String) icon: string | undefined;
-    @Prop(Boolean) loading: boolean | undefined;
+    @Prop({default: false}) loading!: boolean;
     @Prop({
       default: 'left',
       validator(value: string) {return (value === 'left' || value === 'right');}
@@ -33,6 +34,13 @@
 </script>
 
 <style scoped lang="scss">
+	$font-size: 14px;
+	$button-height: 32px;
+	$border-radius: 4px;
+	$border-color: #999;
+	$button-bg: white;
+	$border-color-hover: #666;
+	$button-active-bg: #eee;
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);
@@ -43,27 +51,27 @@
 	}
 
 	.loading {
-		animation: spin 1s infinite linear ;
+		animation: spin 1s infinite linear;
 	}
 
 	.g-button {
-		font-size: var(--font-size);
-		height: var(--button-height);
+		font-size: $font-size;
+		height: $button-height;
 		padding: 0 1em;
-		border-radius: var(--border-radius);
-		border: 1px solid var(--border-color);
-		background: var(--button-bg);
+		border-radius: $border-radius;
+		border: 1px solid $border-color;
+		background: $button-bg;
 		display: inline-flex; // 变成弹性盒子
 		justify-content: center;
 		align-items: center;
 		vertical-align: middle;
 
 		&:hover {
-			border-color: var(--border-color-hover);
+			border-color: $border-color-hover;
 		}
 
 		&:active {
-			background-color: var(--button-active-bg);
+			background-color: #eee;
 		}
 
 		&:focus {

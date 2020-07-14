@@ -1,25 +1,26 @@
 <template>
-  <div class="home">
-    <g-button icon="down">
-      按钮1
-    </g-button>
-    <g-button icon="down" :loading="true">
-      按钮2
-    </g-button>
-    <g-button icon="down" icon-position="right">
-      按钮3
-    </g-button>
-  </div>
+	<div class="home">
+		<m-button icon="down" :loading="isLoading" @click="isLoading = !isLoading">
+			按钮1
+		</m-button>
+
+		<m-button icon="down" :loading="isLoading2" @click="isLoading2 = !isLoading2">
+			按钮2
+		</m-button>
+		<m-button icon="down" icon-position="right">
+			按钮3
+		</m-button>
+	</div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
-  import {Component} from 'vue-property-decorator'
-  import GButton from '@/components/g-button.vue';
-  @Component({
-    components: {GButton}
-  })
-  export default class Home extends Vue{
+  import Vue from 'vue';
+  import {Component} from 'vue-property-decorator';
+
+  @Component
+  export default class Home extends Vue {
+    isLoading = false;
+    isLoading2 = true;
 
   }
 </script>
