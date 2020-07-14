@@ -60,6 +60,7 @@
 		align-items: center;
 		vertical-align: middle;
 
+
 		&:hover {
 			border-color: $border-color-hover;
 		}
