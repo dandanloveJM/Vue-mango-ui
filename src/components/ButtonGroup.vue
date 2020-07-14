@@ -34,7 +34,7 @@
 			&:not(:first-child) {
 				margin-left: -1px;
 			}
-			
+
 			&:first-child {
 				border-top-left-radius: $border-radius;
 				border-bottom-left-radius: $border-radius;
