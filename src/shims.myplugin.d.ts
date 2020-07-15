@@ -3,6 +3,7 @@ import Vue from 'vue';
 type ToastOptions = {
   autoClose?: boolean;
   enableHtml?: boolean;
+  position?: string;
 
 }
 

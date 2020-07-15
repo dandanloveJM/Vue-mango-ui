@@ -107,14 +107,19 @@
     isLoading2 = true;
     isLoading3 = true;
 
-// ex1
+    // ex1
+    //     showToast() {
+    //       this.$toast('很长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长', {
+    //         autoClose: false,
+    //       });
+    //     }
+    //ex2
     showToast() {
-      this.$toast('很长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长', {
+      this.$toast('你好呀', {
         autoClose: false,
+        position: 'middle',
       });
     }
-
-
   }
 
 

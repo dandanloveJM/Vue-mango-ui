@@ -1,5 +1,5 @@
 <template>
-	<div class="toast" ref="wrapper">
+	<div class="toast" ref="wrapper" :class="toastClasses">
 		<div class="message">
 			<slot v-if="!enableHtml"></slot>
 			<div v-else v-html="$slots.default[0]"></div>
@@ -20,33 +20,46 @@
     @Prop(Boolean) autoClose = true;
     @Prop(Number) autoCloseDelay = 50;
     @Prop(Boolean) enableHtml = false;
+    @Prop({validator(value: string) { return ['top', 'bottom', 'middle'].indexOf(value) >= 0;}})
+    position = 'top';
 
     //default值 如果是Object或者数组，必须用函数返回，不能直接写Object或数组
     @Prop(Object) closeButton = {
       text: '关闭', callback: (toast: Toast) => console.log('close')
     };
 
-    mounted(){
-      this.updateStyles()
-			this.execAutoClose()
-		}
+    mounted() {
+      this.updateStyles();
+      this.execAutoClose();
+    }
 
-		updateStyles(){
+    updateStyles() {
       this.$nextTick(() => {
         //@ts-ignore
-        this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`
-      })
-		}
+        this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`;
+      });
+    }
 
-		execAutoClose(){
+    execAutoClose() {
       if (this.autoClose) {
         setTimeout(() => {
           this.close();
         }, this.autoCloseDelay * 1000);
       }
+    }
+
+    @Watch('position')
+		onPositionChange(){
+      console.log('-----------')
+			console.log(this.position)
 		}
 
-
+    get toastClasses() {
+      console.log(this.position)
+      return {
+        [`position-${this.position}`]: true
+      };
+    }
 
 
     close() {
@@ -88,14 +101,29 @@
 		.message {
 			padding: 8px;
 		}
+
 		.close {
 			padding-left: 16px;
 			flex-shrink: 0;
 		}
+
 		.line {
 			height: 100%;
 			border-left: 1px solid #666;
 			margin-left: 16px;
+		}
+
+		&.position-top{
+			top: 0;
+			transform: translateX(-50%);
+		}
+		&.position-bottom{
+			bottom: 0;
+			transform: translateX(-50%);
+		}
+		&.position-middle{
+			top: 50%;
+			transform: translate(-50%, -50%);
 		}
 	}
 </style>

@@ -12,7 +12,7 @@
   export default class Row extends Vue {
     @Prop([Number, String]) gutter!: number | string | undefined;
     @Prop({
-      validator(value: string) { return ['left', 'right', 'center'].includes(value);}
+      validator(value: string) { return ['left', 'right', 'center'].indexOf(value) >=0;}
     }) align: string | undefined;
     @Prop(Boolean) isResponsive: boolean | undefined;
 
