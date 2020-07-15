@@ -11,27 +11,27 @@
   import Vue from 'vue';
   import {Component, Prop} from 'vue-property-decorator';
 
+  const validator = (value: Record<string, number | string>) => {
+    const keys = Object.keys(value);
+    let valid = true;
+    keys.forEach(key => {
+      if (!['span', 'offset'].includes(key)) {
+        valid = false;
+      }
+    });
+    return valid;
+  };
+
   @Component
   export default class Col extends Vue {
     @Prop([Number, String]) span: number | string | undefined;
     @Prop([Number, String]) offset: number | string | undefined;
     @Prop({
-      validator(value: Record<string, number | string>) {
-        const keys = Object.keys(value);
-        let valid = true;
-        keys.forEach(key => {
-          if (!['span', 'offset'].includes(key)) {
-            valid = false;
-          }
-        });
-        return valid;
-      }
+      validator: validator
     }) phone: Record<string, number | string> | undefined;
-    @Prop() ipad: Record<string, number | string> | undefined;
-    @Prop() narrowPC: Record<string, number | string> | undefined;
-    @Prop() pc: Record<string, number | string> | undefined;
-
-
+    @Prop({validator: validator}) ipad: Record<string, number | string> | undefined;
+    @Prop({validator: validator}) narrowPC: Record<string, number | string> | undefined;
+    @Prop({validator: validator}) pc: Record<string, number | string> | undefined;
 
 
     gutter = 0;
@@ -76,7 +76,6 @@
 				margin-left: ($n / 24) * 100%;
 			}
 		}
-
 
 
 	}
