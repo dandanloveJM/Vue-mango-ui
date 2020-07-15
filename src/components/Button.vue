@@ -16,7 +16,7 @@
 <script lang="ts">
   import Vue from 'vue';
   import {Component, Prop} from 'vue-property-decorator';
-  import Icon from '@/components/Icon.vue';
+  import Icon from './Icon.vue';
 
   @Component({
     components: {Icon}
@@ -34,7 +34,13 @@
 </script>
 
 <style scoped lang="scss">
-@import "~@/assets/style/button.scss";
+	$font-size: 14px;
+	$button-height: 32px;
+	$border-radius: 4px;
+	$border-color: #999;
+	$button-bg: white;
+	$border-color-hover: #666;
+	$button-active-bg: #eee;
 	@keyframes spin {
 		0% {
 			transform: rotate(0deg);

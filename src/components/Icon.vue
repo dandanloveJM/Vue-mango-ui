@@ -11,7 +11,6 @@
 
   const importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
   try {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     importAll(require.context('../assets/icons', true, /\.svg$/));
   } catch (error) {
     console.log(error);

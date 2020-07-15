@@ -22,7 +22,14 @@
 </script>
 
 <style scoped lang="scss">
-	@import "~@/assets/style/button.scss";
+	$font-size: 14px;
+	$button-height: 32px;
+	$border-radius: 4px;
+	$border-color: #999;
+	$button-bg: white;
+	$border-color-hover: #666;
+	$button-active-bg: #eee;
+
 
 	.g-button-group {
 		vertical-align: middle;
