@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<Icon2 name="good"></Icon2>
 		<m-button icon="down" :loading="isLoading" @click="isLoading = !isLoading">
 			按钮1
 		</m-button>
@@ -20,29 +21,34 @@
 		</m-button-group>
 
 
-		<m-row gutter="20">
-			<m-col>1</m-col>
-			<m-col>2</m-col>
-		</m-row>
-<!--		<m-row>-->
-<!--			<m-col span="2">1</m-col>-->
-<!--			<m-col span="18">2</m-col>-->
-<!--			<m-col span="4">3</m-col>-->
-<!--		</m-row>-->
+		<div>
+			<m-row gutter="20">
+				<m-col span="4" offset="2" :phone="{span:12, offset:4}">1</m-col>
+				<m-col span="20" offset="2" :phone="{span:12, offset:4}">2</m-col>
+			</m-row>
+		</div>
 
-<!--		<m-row>-->
-<!--			<m-col span="2" offset="4">1</m-col>-->
-<!--			<m-col span="10" offset="4">2</m-col>-->
-<!--			<m-col span="4">3</m-col>-->
-<!--		</m-row>-->
+		<m-row>
+			<m-col span="2">1</m-col>
+			<m-col span="18">2</m-col>
+			<m-col span="4">3</m-col>
+		</m-row>
+
+		<m-row>
+			<m-col span="2" offset="4">1</m-col>
+			<m-col span="10" offset="4">2</m-col>
+			<m-col span="4">3</m-col>
+		</m-row>
 	</div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
   import {Component} from 'vue-property-decorator';
-
-  @Component
+  import Icon2 from '@/components/Icon2.vue';
+  @Component({
+    components: {Icon2}
+  })
   export default class Home extends Vue {
     isLoading = false;
     isLoading2 = true;

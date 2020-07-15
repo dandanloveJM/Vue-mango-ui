@@ -15,6 +15,24 @@
   export default class Col extends Vue {
     @Prop([Number, String]) span: number | string | undefined;
     @Prop([Number, String]) offset: number | string | undefined;
+    @Prop({
+      validator(value: Record<string, number | string>) {
+        const keys = Object.keys(value);
+        let valid = true;
+        keys.forEach(key => {
+          if (!['span', 'offset'].includes(key)) {
+            valid = false;
+          }
+        });
+        return valid;
+      }
+    }) phone: Record<string, number | string> | undefined;
+    @Prop() ipad: Record<string, number | string> | undefined;
+    @Prop() narrowPC: Record<string, number | string> | undefined;
+    @Prop() pc: Record<string, number | string> | undefined;
+
+
+
 
     gutter = 0;
 
@@ -25,7 +43,15 @@
     }
 
     get colClass() {
-      return [this.span && `col-${this.span}`, this.offset && `offset-${this.offset}`];
+      const {span, offset, phone} = this;
+      let phoneClass: string[] = [];
+      if (phone) {
+        phoneClass = [`col-phone-${phone.span}`];
+      }
+      return [span && `col-${span}`,
+        offset && `offset-${offset}`,
+        ...phoneClass
+      ];
     }
 
   }
@@ -34,9 +60,8 @@
 <style scoped lang="scss">
 	.col {
 		height: 100px;
-
 		width: 50%;
-		border: 1px solid red;
+
 
 		$class-prefix: col-;
 		@for $n from 1 through 24 {
@@ -51,6 +76,7 @@
 				margin-left: ($n / 24) * 100%;
 			}
 		}
+
 
 
 	}
