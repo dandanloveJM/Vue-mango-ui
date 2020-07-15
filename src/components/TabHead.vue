@@ -1,21 +1,38 @@
 <template>
 	<div class="tabs-header">
 		<slot></slot>
+		<div class="actions-wrapper">
+			<slot name="actions"></slot>
+		</div>
 	</div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
-  import {Component} from 'vue-property-decorator';
+  import {Component, Inject} from 'vue-property-decorator';
 
   @Component
-  export default class TabHeader extends Vue {
-    name: 'TabNav';
+  export default class TabHead extends Vue {
+    @Inject() eventbus!: Vue;
+
+    created(){
+      console.log('爷爷给爸爸的eventBus')
+			console.log(this.eventbus)
+		}
+
   }
 </script>
 
 <style scoped lang="scss">
-.tabs-header {
-
-}
+	$tab-height: 40px;
+	.tabs-header {
+		display: flex;
+		height: $tab-height;
+		justify-content: flex-start;
+		align-items: center;
+		border: 1px solid red;
+		> .actions-wrapper {
+			margin-left: auto;
+		}
+	}
 </style>

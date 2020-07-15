@@ -91,6 +91,25 @@
 		<!--		</m-row>-->
 
 		<button @click="showToast">点我</button>
+
+		<m-tab :selected.sync="selectedTag" direction>
+			<m-tab-head>
+				<m-tab-item name="woman">
+					美女
+				</m-tab-item>
+				<m-tab-item name="finance">
+					财经
+				</m-tab-item>
+				<m-tab-item name="sports">
+					体育
+				</m-tab-item>
+			</m-tab-head>
+			<m-tab-body>
+				<m-tab-pane name="woman">美女相关资讯</m-tab-pane>
+				<m-tab-pane name="finance">财经相关资讯</m-tab-pane>
+				<m-tab-pane name="sports">体育相关资讯</m-tab-pane>
+			</m-tab-body>
+		</m-tab>
 	</div>
 </template>
 
@@ -106,6 +125,7 @@
     isLoading = false;
     isLoading2 = true;
     isLoading3 = true;
+    selectedTag = 'woman'
 
     // ex1
     //     showToast() {
