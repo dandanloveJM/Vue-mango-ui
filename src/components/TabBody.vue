@@ -11,11 +11,6 @@
   @Component
   export default class TabBody extends Vue {
     @Inject() eventbus!: Vue;
-
-    created(){
-      console.log('爷爷给body的eventBus')
-      console.log(this.eventbus)
-    }
   }
 </script>
 

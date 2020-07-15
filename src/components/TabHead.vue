@@ -15,11 +15,6 @@
   export default class TabHead extends Vue {
     @Inject() eventbus!: Vue;
 
-    created(){
-      console.log('爷爷给爸爸的eventBus')
-			console.log(this.eventbus)
-		}
-
   }
 </script>
 
