@@ -29,16 +29,29 @@
 		</div>
 
 		<m-row>
-			<m-col span="2">1</m-col>
-			<m-col span="18">2</m-col>
-			<m-col span="4">3</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
+				<div class="demo">demo</div>
+			</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
+				<div class="demo">demo</div>
+			</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
+				<div class="demo">demo</div>
+			</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
+				<div class="demo">demo</div>
+			</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
+				<div class="demo">demo</div>
+			</m-col>
+
 		</m-row>
 
-		<m-row>
-			<m-col span="2" offset="4">1</m-col>
-			<m-col span="10" offset="4">2</m-col>
-			<m-col span="4">3</m-col>
-		</m-row>
+<!--		<m-row>-->
+<!--			<m-col span="2" offset="4">1</m-col>-->
+<!--			<m-col span="10" offset="4">2</m-col>-->
+<!--			<m-col span="4">3</m-col>-->
+<!--		</m-row>-->
 	</div>
 </template>
 
@@ -56,3 +69,9 @@
 
   }
 </script>
+
+<style lang="scss">
+	.demo {
+		height: 100px;
+	}
+</style>
