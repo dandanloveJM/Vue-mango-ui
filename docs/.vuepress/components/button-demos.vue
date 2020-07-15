@@ -4,6 +4,7 @@
 		<g-button icon="settings">默认按钮</g-button>
 		<g-button :loading="true">默认按钮</g-button>
 		<g-button disabled>默认按钮</g-button>
+		<icon2 name="good"></icon2>
 
 		<pre>
 		<code>{{content}}</code>
@@ -15,16 +16,13 @@
 
 <script>
     import Button from '../../../src/components/Button'
-    import {Component, Prop} from 'vue-property-decorator';
-    const importAll = (requireContext) => requireContext.keys().forEach(requireContext);
-    try {
-        importAll(require.context('../assets/icons', true, /\.svg$/));
-    } catch (error) {
-        console.log(error);
-    }
+    import Icon2 from "../../../src/components/Icon2";
+    import '../../../src/components/svg.js'
+
 
     export default {
         components: {
+            Icon2,
             gButton: Button
         },
         data() {
