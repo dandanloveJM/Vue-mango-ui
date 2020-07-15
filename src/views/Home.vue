@@ -20,15 +20,21 @@
 		</m-button-group>
 
 
-		<m-row>
+		<m-row gutter="20">
 			<m-col>1</m-col>
 			<m-col>2</m-col>
 		</m-row>
-		<m-row>
-			<m-col span="2">1</m-col>
-			<m-col span="18">2</m-col>
-			<m-col span="4">3</m-col>
-		</m-row>
+<!--		<m-row>-->
+<!--			<m-col span="2">1</m-col>-->
+<!--			<m-col span="18">2</m-col>-->
+<!--			<m-col span="4">3</m-col>-->
+<!--		</m-row>-->
+
+<!--		<m-row>-->
+<!--			<m-col span="2" offset="4">1</m-col>-->
+<!--			<m-col span="10" offset="4">2</m-col>-->
+<!--			<m-col span="4">3</m-col>-->
+<!--		</m-row>-->
 	</div>
 </template>
 
