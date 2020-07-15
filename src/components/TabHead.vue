@@ -1,5 +1,5 @@
 <template>
-	<div class="tabs-header">
+	<div class="tabs-head">
 		<slot></slot>
 		<div class="actions-wrapper">
 			<slot name="actions"></slot>
@@ -15,19 +15,27 @@
   export default class TabHead extends Vue {
     @Inject() eventbus!: Vue;
 
+
   }
 </script>
 
 <style scoped lang="scss">
 	$tab-height: 40px;
-	.tabs-header {
+	$blue: #2697ff;
+	$border-color: #ddd;
+	.tabs-head {
 		display: flex;
 		height: $tab-height;
 		justify-content: flex-start;
-		align-items: center;
-		border: 1px solid red;
+		position: relative;
+		border-bottom: 1px solid $border-color;
 		> .actions-wrapper {
 			margin-left: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 1em;
 		}
 	}
+
 </style>

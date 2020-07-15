@@ -28,18 +28,30 @@
     }
 
     xxx() {
-      this.eventbus.$emit('update:selected', this.name);
+      this.eventbus.$emit('update:selected', this.name, this)
     }
   }
 </script>
 
 <style scoped lang="scss">
+	$blue: #2697ff;
+	$disabled-text-color: grey;
 	.tab-item {
 		flex-shrink: 0;
 		padding: 0 1em;
-
+		cursor: pointer;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		border: 0;
 		&.active {
-			background: red;
+			color: $blue;
+			font-weight: bold;
+			border-bottom: 1px solid $blue;
+		}
+		&.disabled {
+			color: $disabled-text-color;
+			cursor: not-allowed;
 		}
 	}
 </style>
