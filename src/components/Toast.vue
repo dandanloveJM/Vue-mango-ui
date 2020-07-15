@@ -18,7 +18,7 @@
   @Component
   export default class Toast extends Vue {
     @Prop(Boolean) autoClose = true;
-    @Prop(Number) autoCloseDelay = 50;
+    @Prop(Number) autoCloseDelay = 5;
     @Prop(Boolean) enableHtml = false;
     @Prop({validator(value: string) { return ['top', 'bottom', 'middle'].indexOf(value) >= 0;}})
     position = 'top';

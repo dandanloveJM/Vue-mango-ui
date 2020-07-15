@@ -117,7 +117,6 @@
     showToast() {
       this.$toast('你好呀', {
         autoClose: false,
-        position: 'middle',
       });
     }
   }
