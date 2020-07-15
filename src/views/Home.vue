@@ -20,38 +20,75 @@
 			<m-button icon="right" icon-position="right">下一页</m-button>
 		</m-button-group>
 
+<h3>把一行分成2份</h3>
+		<m-row>
+		<m-col>
+			<div>col1</div>
+		</m-col>
+		<m-col>
+			<div>col2</div>
+		</m-col>
+	</m-row>
 
+		<h3>把一行分成3分</h3>
+		<m-row>
+			<m-col>col1</m-col>
+			<m-col>col2</m-col>
+			<m-col>col3</m-col>
+		</m-row>
+
+		<h3>随意指定offset</h3>
+		<m-row>
+			<m-col span="4">col1</m-col>
+			<m-col span="18" offset="2">col2</m-col>
+		</m-row>
+
+		<h3>gutter</h3>
 		<div>
 			<m-row gutter="20">
-				<m-col span="4" offset="2" :phone="{span:12, offset:4}">1</m-col>
-				<m-col span="20" offset="2" :phone="{span:12, offset:4}">2</m-col>
+				<m-col>1</m-col>
+				<m-col>2</m-col>
 			</m-row>
 		</div>
 
-		<m-row>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
-				<div class="demo">demo</div>
+		<h3>gutter 四份</h3>
+		<div>
+			<m-row gutter="20">
+				<m-col>1</m-col>
+				<m-col>2</m-col>
+				<m-col>3</m-col>
+				<m-col>4</m-col>
+			</m-row>
+		</div>
+
+<h3>响应式</h3>
+		<m-row :isResponsive="true" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col1</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
-				<div class="demo">demo</div>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col2</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
-				<div class="demo">demo</div>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col3</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
-				<div class="demo">demo</div>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col4</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}">
-				<div class="demo">demo</div>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col5</div>
+			</m-col>
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+				<div class="demo">col6</div>
 			</m-col>
 
 		</m-row>
 
-<!--		<m-row>-->
-<!--			<m-col span="2" offset="4">1</m-col>-->
-<!--			<m-col span="10" offset="4">2</m-col>-->
-<!--			<m-col span="4">3</m-col>-->
-<!--		</m-row>-->
+		<!--		<m-row>-->
+		<!--			<m-col span="2" offset="4">1</m-col>-->
+		<!--			<m-col span="10" offset="4">2</m-col>-->
+		<!--			<m-col span="4">3</m-col>-->
+		<!--		</m-row>-->
 	</div>
 </template>
 
@@ -59,6 +96,7 @@
   import Vue from 'vue';
   import {Component} from 'vue-property-decorator';
   import Icon2 from '@/components/Icon2.vue';
+
   @Component({
     components: {Icon2}
   })
@@ -71,7 +109,4 @@
 </script>
 
 <style lang="scss">
-	.demo {
-		height: 100px;
-	}
 </style>

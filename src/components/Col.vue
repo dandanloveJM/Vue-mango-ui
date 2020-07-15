@@ -1,8 +1,10 @@
 <template>
 	<div class="col" :class="colClass" :style="colStyle">
-		<div style="border: 1px solid green;">
+		<div>
 			<slot></slot>
 		</div>
+
+
 
 	</div>
 </template>
@@ -44,7 +46,7 @@
     }
 
     get colClass() {
-      const {span, offset, ipad, narrowPc, pc, widePc} = this;
+      const {span, offset, ipad, narrowPc, pc, widePc, gutter} = this;
       const createClasses = this.createClasses;
       return [
         ...createClasses({span, offset}),
@@ -52,11 +54,12 @@
         ...createClasses(narrowPc, 'narrow-pc-'),
         ...createClasses(pc, 'pc-'),
         ...createClasses(widePc, 'wide-pc-'),
+				gutter && 'gutter'
       ];
     }
 
     createClasses(obj: { span: string | number | undefined; offset: string | number | undefined } | undefined,
-									str = '') {
+                  str = '') {
       if (!obj) {return [];}
       const array = [];
       if (obj.span) { array.push(`col-${str}${obj.span}`); }
@@ -68,10 +71,37 @@
 </script>
 
 <style scoped lang="scss">
+	.col:nth-child(odd) {
+
+		background: rgba(0, 160, 233, .7)
+	}
+
+	.col:nth-child(even) {
+		background: #00a0e9
+	}
 	.col {
 		height: 100px;
 		width: 50%;
-		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		font-size: 14px;
+
+		&.gutter {
+			background: white;
+
+			> div {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-grow: 1;
+				height: 100px;
+				background: rgba(0, 160, 233, .7);
+			}
+		}
+
+
 
 		$class-prefix: col-;
 		@for $n from 1 through 24 {

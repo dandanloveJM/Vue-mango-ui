@@ -14,10 +14,12 @@
     @Prop({
       validator(value: string) { return ['left', 'right', 'center'].includes(value);}
     }) align: string | undefined;
+    @Prop(Boolean) isResponsive: boolean | undefined;
 
     mounted() {
       this.$children.forEach((vm) => {
         if (this.gutter) {
+          console.log('传的gutter'+this.gutter)
           vm.$data.gutter = this.gutter;
         }
       });
@@ -30,10 +32,10 @@
       return '';
     }
 
-    get rowClass(){
-      const {align} = this
-			return [align && `align-${align}`]
-		}
+    get rowClass() {
+      const {align, isResponsive} = this;
+      return [align && `align-${align}`, isResponsive && `responsive`];
+    }
 
   }
 </script>
@@ -41,15 +43,24 @@
 <style scoped lang="scss">
 	.row {
 		display: flex;
-		flex-wrap: wrap;
-		&.align-left{
+		flex-wrap: nowrap;
+
+		&.responsive {
+			flex-wrap: wrap;
+		}
+
+		&.align-left {
 			justify-content: flex-start;
 		}
+
 		&.align-right {
 			justify-content: flex-end;
 		}
+
 		&.align-center {
 			justify-content: center;
 		}
+
+
 	}
 </style>
