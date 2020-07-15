@@ -89,6 +89,8 @@
 		<!--			<m-col span="10" offset="4">2</m-col>-->
 		<!--			<m-col span="4">3</m-col>-->
 		<!--		</m-row>-->
+
+		<button @click="showToast">点我</button>
 	</div>
 </template>
 
@@ -104,6 +106,10 @@
     isLoading = false;
     isLoading2 = true;
     isLoading3 = true;
+    showToast(){
+      debugger
+      this.$toast('hhh')
+    }
 
   }
 </script>

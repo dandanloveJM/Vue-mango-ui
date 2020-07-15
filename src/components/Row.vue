@@ -19,8 +19,10 @@
     mounted() {
       this.$children.forEach((vm) => {
         if (this.gutter) {
-          console.log('传的gutter'+this.gutter)
-          vm.$data.gutter = this.gutter;
+          this.$nextTick(() => {
+            vm.$data.gutter = this.gutter;
+          })
+
         }
       });
     }
