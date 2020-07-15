@@ -18,6 +18,17 @@
 			<m-button>更多</m-button>
 			<m-button icon="right" icon-position="right">下一页</m-button>
 		</m-button-group>
+
+
+		<m-row>
+			<m-col>1</m-col>
+			<m-col>2</m-col>
+		</m-row>
+		<m-row>
+			<m-col span="2">1</m-col>
+			<m-col span="18">2</m-col>
+			<m-col span="4">3</m-col>
+		</m-row>
 	</div>
 </template>
 
