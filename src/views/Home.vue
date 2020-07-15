@@ -20,15 +20,15 @@
 			<m-button icon="right" icon-position="right">下一页</m-button>
 		</m-button-group>
 
-<h3>把一行分成2份</h3>
+		<h3>把一行分成2份</h3>
 		<m-row>
-		<m-col>
-			<div>col1</div>
-		</m-col>
-		<m-col>
-			<div>col2</div>
-		</m-col>
-	</m-row>
+			<m-col>
+				<div>col1</div>
+			</m-col>
+			<m-col>
+				<div>col2</div>
+			</m-col>
+		</m-row>
 
 		<h3>把一行分成3分</h3>
 		<m-row>
@@ -61,24 +61,24 @@
 			</m-row>
 		</div>
 
-<h3>响应式</h3>
-		<m-row :isResponsive="true" >
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+		<h3>响应式</h3>
+		<m-row :isResponsive="true">
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col1</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col2</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col3</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col4</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col5</div>
 			</m-col>
-			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}" >
+			<m-col span="24" :ipad="{span:12}" :narrowPc="{span:8}" :pc="{span:4}">
 				<div class="demo">col6</div>
 			</m-col>
 
@@ -106,12 +106,18 @@
     isLoading = false;
     isLoading2 = true;
     isLoading3 = true;
-    showToast(){
-      debugger
-      this.$toast('hhh')
+
+// ex1
+    showToast() {
+      this.$toast('很长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长长很长很长很长很长', {
+        autoClose: false,
+      });
     }
 
+
   }
+
+
 </script>
 
 <style lang="scss">
